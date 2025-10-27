@@ -27,11 +27,18 @@
                     </form>
                     <br>
                     @if($post->comments->count())
-                        
+                        <hr>
                         <ul>
                             @foreach($post->comments as $comment)
                                 <li>{{ $comment->content }} </li>
                                 <li>author: {{ $comment->user->name  }} </li>
+                                                    <a href="{{ route('posts.edit', $post) }}">Edit</a>
+                    <form action="{{ route('comment.destroy', $comment) }}" method="POST" style="display:inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Delete</button>
+                    </form>
+                                <hr>
                             @endforeach
                         </ul>
                         <br>

@@ -30,7 +30,7 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        //
+        return view('posts.edit', ['post' => $post]);
     }
 
     /**
@@ -38,7 +38,16 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        $data = $request->validate([
+            'content' => 'required',
+        ]);
+
+        // set the authenticated user's id
+        $data['user_id'] = $request->user()->id; 
+        $data['post_id'] = $post->id;
+        Comment::create($data);
+
+        return redirect()->route('posts.show', $post);
     }
 
     /**
@@ -46,6 +55,7 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+        return back();
     }
 }

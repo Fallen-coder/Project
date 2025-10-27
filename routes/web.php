@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
     
     // Comment routes
     Route::post('/comments/{post}', [CommentController::class, 'store'])->name('comments.store');
-    Route::delete('/comments/{post}/destroy', [CommentController::class, 'destroy'])->name('posts.destroy');
+    Route::delete('/comments/{comment}/destroy', [CommentController::class, 'destroy'])->name('comment.destroy');
 
 });
 
