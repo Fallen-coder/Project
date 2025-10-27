@@ -18,12 +18,14 @@
                 <li>
                     <a href="{{ route('posts.show', $post) }}" >{{ $post->title }}</a>
                     <br>
+                    @if(auth()->id() === $post->user_id)
                     <a href="{{ route('posts.edit', $post) }}">Edit</a>
                     <form action="{{ route('posts.destroy', $post) }}" method="POST" style="display:inline">
                         @csrf
                         @method('DELETE')
                         <button type="submit">Delete</button>
                     </form>
+                    @endif
                 </li>
                 <br><hr>
             @endforeach

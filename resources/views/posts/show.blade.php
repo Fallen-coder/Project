@@ -29,15 +29,19 @@
                     @if($post->comments->count())
                         <hr>
                         <ul>
+                            
                             @foreach($post->comments as $comment)
                                 <li>{{ $comment->content }} </li>
                                 <li>author: {{ $comment->user->name  }} </li>
+                                @if(auth()->id() === $comment->user_id)
                     <a href="{{ route('comment.edit', $comment) }}">Edit</a>
                     <form action="{{ route('comment.destroy', $comment) }}" method="POST" style="display:inline">
                         @csrf
                         @method('DELETE')
                         <button type="submit">Delete</button>
                     </form>
+                                
+                                @endif
                                 <hr>
                             @endforeach
                         </ul>
