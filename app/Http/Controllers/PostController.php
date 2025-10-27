@@ -28,7 +28,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required|max:255',
+            'content' => 'required',
+        ]);
+
+        // set the authenticated user's id
+        $data['user_id'] = $request->user()->id; 
+
+        Post::create($data);
+
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -45,7 +55,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit', ['post' => $post]);
     }
 
     /**
@@ -60,7 +70,8 @@ class PostController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Post $post)
-    {
-        //
+    {   
+        $post->delete();
+        return redirect()->route('posts.index');
     }
 }
