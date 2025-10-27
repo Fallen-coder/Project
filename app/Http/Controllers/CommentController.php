@@ -30,7 +30,7 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        return view('posts.edit', ['post' => $post]);
+        return view('posts.comment.edit', ['comment' => $comment]);
     }
 
     /**
@@ -42,12 +42,10 @@ class CommentController extends Controller
             'content' => 'required',
         ]);
 
-        // set the authenticated user's id
-        $data['user_id'] = $request->user()->id; 
-        $data['post_id'] = $post->id;
-        Comment::create($data);
+        
+        $comment->update($data);
 
-        return redirect()->route('posts.show', $post);
+        return redirect()->route('posts.show', $comment->post);
     }
 
     /**

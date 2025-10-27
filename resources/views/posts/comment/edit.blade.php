@@ -9,11 +9,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <form action="/posts/{{ $post }}/update" method="post">
+                    <form action="{{ route('comment.update', $comment) }}" method="post">
                         @csrf
                         @method('Put')
                         <label for="content">Content: </label>
-                        <textarea name="content" id="content">{{ $post->content }}</textarea>
+                        <textarea name="content" id="content">{{ $comment->content }}</textarea>
                         <br>
                         <br>
                         <input type="submit" value="Update">

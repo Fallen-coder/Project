@@ -32,7 +32,7 @@
                             @foreach($post->comments as $comment)
                                 <li>{{ $comment->content }} </li>
                                 <li>author: {{ $comment->user->name  }} </li>
-                                                    <a href="{{ route('posts.edit', $post) }}">Edit</a>
+                    <a href="{{ route('comment.edit', $comment) }}">Edit</a>
                     <form action="{{ route('comment.destroy', $comment) }}" method="POST" style="display:inline">
                         @csrf
                         @method('DELETE')

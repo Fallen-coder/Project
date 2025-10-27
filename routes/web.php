@@ -29,7 +29,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
     
     // Comment routes
+
     Route::post('/comments/{post}', [CommentController::class, 'store'])->name('comments.store');
+    Route::get('/comments/{comment}/edit', [CommentController::class, 'edit'])->name('comment.edit');
+    Route::put('/comments/{comment}/update', [CommentController::class, 'update'])->name('comment.update');
     Route::delete('/comments/{comment}/destroy', [CommentController::class, 'destroy'])->name('comment.destroy');
 
 });
