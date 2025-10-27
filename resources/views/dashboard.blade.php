@@ -28,25 +28,11 @@
                     <!-- Posts grid -->
                     <section class="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
                         @foreach($posts as $post)
-                            <article class="border rounded-lg p-4 hover:shadow-lg transition">
-                                <h3 class="text-xl font-semibold mb-2">{{ $post->title }}</h3>
-                                <p class="text-gray-600 mb-4">{{ Str::limit($post->content, 150) }}</p>
-                             
-                                <!-- Comments section -->
-                                <div class="mt-4 border-t pt-4">
-                                    <h4 class="font-semibold mb-2">Comments</h4>
-                                    @foreach($post->comments as $comment)
-                                        <div class="text-sm text-gray-600 mb-2">
-                                            {{ $comment->content }}
-                                        </div>
-                                    @endforeach
-                            @endforeach   
-  </article>
+                            <h3 class="text-xl font-semibold mb-2">{{ $post->title }}</h3>
+                            <p class="text-gray-600 mb-4">{{ Str::limit($post->content, 150) }}</p>
+                            <hr>
+                        @endforeach   
 
-
-
-  <!-- Add more posts -->
-</section>
 
 
 
