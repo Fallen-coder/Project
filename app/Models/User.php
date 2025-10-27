@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+    // Define relationship to Post and Comment models
     public function user() {
         return $this->belongsTo(User::class);
     }

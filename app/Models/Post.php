@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     protected $fillable = ["title", "content", "user_id"];
+    // Define relationship to User and Comment models
     public function user() {
         return $this->belongsTo(User::class);
     }
