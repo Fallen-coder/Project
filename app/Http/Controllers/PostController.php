@@ -38,7 +38,7 @@ class PostController extends Controller
 
         Post::create($data);
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.show', $post);
     }
 
     /**
@@ -63,7 +63,17 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required|max:255',
+            'content' => 'required',
+        ]);
+
+        // set the authenticated user's id
+        $data['user_id'] = $request->user()->id; 
+
+        $post->update($data);
+
+        return redirect()->route('posts.show', $post);
     }
 
     /**
