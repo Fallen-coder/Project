@@ -12,10 +12,12 @@
                     <form action="/posts" method="post">
                         @csrf
                         <label for="title">Title: </label>
-                        <input type="text" id="title" name="title" value="{{ old('title') }}">
+                        <input type="text" id="title"  class="w-1/2 border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  rows="2" name="title" value="{{ old('title') }}">
                         <br>
                         <label for="content">Content: </label>
-                        <textarea name="content" id="content" value="{{ old('content') }}"></textarea>
+                        <textarea name="content" id="content"  class="w-full border border-gray-300 rounded-md p-2 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                  rows="2" value="{{ old('content') }}"></textarea>
                         <br>
                         <input type="submit" value="Create">
                 </div>

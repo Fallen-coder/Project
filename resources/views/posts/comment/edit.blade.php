@@ -13,7 +13,8 @@
                         @csrf
                         @method('Put')
                         <label for="content">Content: </label>
-                        <textarea name="content" id="content">{{ $comment->content }}</textarea>
+                        <textarea name="content" class="w-full border border-gray-300 rounded-md p-2 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                  rows="2" id="content">{{ $comment->content }}</textarea>
                         <br>
                         <br>
                         <input type="submit" value="Update">
