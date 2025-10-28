@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Models\Post;
+use App\Http\Controllers\ExtraController;
 //just for testing
 Route::get('/test', function () {
     return view('test');
@@ -14,6 +15,10 @@ Route::get('/test', function () {
 Route::get('/', function () { 
     return view('dashboard', ['posts' => Post::all()]);
 })->name('dashboard');
+
+Route::get('/about', [ExtraController::class, 'about'])->name('about');
+Route::get('/contact', [ExtraController::class, 'contact'])->name('contact');
+
 
 
 Route::middleware('auth')->group(function () {
