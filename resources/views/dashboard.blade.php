@@ -5,13 +5,13 @@
                 {{ __('Home') }}
             </h2>
             @auth
-                <a href="{{ route('login') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <a href="{{ route('posts.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Create Post
                 </a>
             @endauth
         </div>
     </x-slot>
-
+    
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -26,16 +26,16 @@
                     </header>
 
                     <!-- Posts grid -->
-                    <section class="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-                        @foreach($posts as $post)
-                            <h3 class="text-xl font-semibold mb-2">{{ $post->title }}</h3>
-                            <p class="text-gray-600 mb-4">{{ Str::limit($post->content, 150) }}</p>
-                            <hr>
-                        @endforeach   
-
-
-
-
+                    <div class=" mx-auto grid grid-cols-2 gap-6">
+                        @foreach($posts->take(3) as $post)
+                            <div class="border-square">
+                                <h3 class="text-xl font-semibold mb-2">{{ $post->title }}</h3>
+                                <p class="text-gray-600 mb-4">{{ Str::limit($post->content, 150) }}</p>
+                                <hr>
+                            </div>
+                        @endforeach
+                    </div>
+                    <a href="{{route('posts.index')}}">read more ----></a>
                 </div>
             </div>
         </div>

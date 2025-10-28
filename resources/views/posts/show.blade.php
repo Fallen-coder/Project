@@ -3,6 +3,11 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __( $post->title) }}
         </h2>
+            @auth
+                <a href="{{ route('posts.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Create Post
+                </a>
+            @endauth
     </x-slot>
 
     <div class="py-22">
