@@ -27,9 +27,7 @@
 
 
 
-                    <x-nav-link :href="route('posts.create')" :active="request()->routeIs('posts.create')">
-                        {{ __('New post') }}
-                    </x-nav-link>
+
                 </div>
             </div>
 
