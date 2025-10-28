@@ -1,19 +1,19 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __( $post->title) }}
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-22">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <h1>Title: {{ $post->title }}</h1>
-                    <p>Content: {{ $post->content }}</p>
-                    <br>
+                    <div class="mb-4">
+                        <div class="whitespace-pre-line">{!! nl2br(e($post->content)) !!}</div>
+                    </div>
                     <hr>
-                    <h2>Comments:</h2>
+                    <h2 class="mt-6 mb-4 text-xl font-semibold">Comments:</h2>
 
                     <form action="{{ route('comments.store', $post) }}" method="post" display="inline">
                         @csrf

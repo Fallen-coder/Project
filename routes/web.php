@@ -5,6 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Models\Post;
+//just for testing
+Route::get('/test', function () {
+    return view('test');
+});
+
 
 Route::get('/', function () { 
     return view('dashboard', ['posts' => Post::all()]);

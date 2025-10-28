@@ -9,14 +9,13 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    
-    
 
     @if($posts->count())
         <ul>
             @foreach($posts as $post)
                 <li>
                     <a href="{{ route('posts.show', $post) }}" >{{ $post->title }}</a>
+                    <p class="text-gray-600 mb-4">{{ Str::limit($post->content, 150) }}</p>
                     <br>
                     @if(auth()->id() === $post->user_id)
                     <a href="{{ route('posts.edit', $post) }}">Edit</a>

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Editor') }}
         </h2>
     </x-slot>
 
@@ -18,7 +18,8 @@
 
                         <br>
                         <label for="content">Content: </label>
-                        <textarea name="content" id="content">{{ $post->content }}</textarea>
+                        <textarea name="content" id="content"class="w-full border border-gray-300 rounded-md p-2 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                  rows="2">{{ $post->content }}</textarea>
                         <br>
 
                         <br>
