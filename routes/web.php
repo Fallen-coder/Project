@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Models\Post;
 use App\Http\Controllers\ExtraController;
+use App\Http\Controllers\ContactController;
 //just for testing
 Route::get('/test', function () {
     return view('test');
@@ -17,8 +18,10 @@ Route::get('/', function () {
 })->name('dashboard');
 
 Route::get('/about', [ExtraController::class, 'about'])->name('about');
-Route::get('/contact', [ExtraController::class, 'contact'])->name('contact');
 
+// Contact route
+Route::get('/contact', [ExtraController::class, 'contact'])->name('contact');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
 
 Route::middleware('auth')->group(function () {
