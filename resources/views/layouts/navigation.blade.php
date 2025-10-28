@@ -46,7 +46,12 @@
                             </button>
                         @else
                             <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
-                        @endauth
+                                                   <p class="inline">//</p> <a
+                                href="{{ route('register') }}"
+                                class="text-sm text-gray-700 underline">
+                                Register
+                            </a>
+                            @endauth
                     </x-slot>
 
                     <x-slot name="content">
